@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="100%" height="100%">
+  <defs>
+    <linearGradient id="termGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e17" />
+      <stop offset="100%" stop-color="#05070c" />
+    </linearGradient>
+    <filter id="termGlow">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <style>
+      @keyframes blinkCursor {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+      @keyframes scanline {
+        0% { transform: translateY(-520px); }
+        100% { transform: translateY(520px); }
+      }
+      @keyframes fadeInStep {
+        0% { opacity: 0; transform: translateY(4px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      .cursor { animation: blinkCursor 0.9s infinite; }
+      .term-text {
+        font-family: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, monospace;
+        font-size: 13px;
+        fill: #cbd5e1;
+      }
+      .t-green { fill: #10b981; font-weight: 600; }
+      .t-cyan { fill: #00f2fe; font-weight: 600; }
+      .t-purple { fill: #c084fc; font-weight: 600; }
+      .t-yellow { fill: #fbbf24; font-weight: 600; }
+      .t-red { fill: #f87171; font-weight: 700; }
+      .t-gray { fill: #64748b; }
+      .t-white { fill: #ffffff; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Window Container -->
+  <rect width="960" height="520" rx="12" fill="url(#termGrad)" stroke="#1e293b" stroke-width="1.5" />
+  
+  <!-- Terminal Title Bar -->
+  <rect width="960" height="38" rx="12" fill="#0f172a" />
+  <rect y="26" width="960" height="12" fill="#0f172a" />
+  <line x1="0" y1="38" x2="960" y2="38" stroke="#1e293b" stroke-width="1" />
+  
+  <!-- Window Buttons -->
+  <circle cx="24" cy="19" r="6" fill="#ef4444" />
+  <circle cx="44" cy="19" r="6" fill="#f59e0b" />
+  <circle cx="64" cy="19" r="6" fill="#10b981" />
+  
+  <!-- Window Title -->
+  <text x="480" y="24" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" fill="#94a3b8">
+    bash - netsentinel@enterprise-node: ~ (python main.py)
+  </text>
+
+  <!-- Terminal Content Body -->
+  <g transform="translate(28, 65)">
+    <!-- Command Prompt -->
+    <text x="0" y="0" class="term-text">
+      <tspan class="t-cyan">secops@netsentinel</tspan><tspan class="t-gray">:</tspan><tspan class="t-purple">~/workspace</tspan><tspan class="t-gray">$</tspan> <tspan class="t-white">python main.py</tspan>
+    </text>
+
+    <!-- Banner Output -->
+    <text x="0" y="24" class="term-text t-cyan">╭────────────────────────────────────────────────────────────────────────────────────────╮</text>
+    <text x="0" y="44" class="term-text t-cyan">│ <tspan class="t-white">NetSentinel Enterprise Cybersecurity Anomaly Detection</tspan>                               │</text>
+    <text x="0" y="64" class="term-text t-cyan">│ <tspan class="t-gray">Lead Developer:</tspan> <tspan class="t-yellow">Hardik</tspan> <tspan class="t-gray">|</tspan> <tspan class="t-gray">Security Lab:</tspan> <tspan class="t-purple">Hidden Eye Security</tspan> <tspan class="t-gray">|</tspan> <tspan class="t-green">Engine Online</tspan>            │</text>
+    <text x="0" y="84" class="term-text t-cyan">╰────────────────────────────────────────────────────────────────────────────────────────╯</text>
+
+    <!-- Stage 1 Pipeline Init -->
+    <text x="0" y="112" class="term-text">
+      <tspan class="t-green">[✓]</tspan> <tspan class="t-white">Phase 1:</tspan> Initializing SQLite Database with WAL PRAGMAs (aiosqlite double-buffer)
+    </text>
+    <text x="0" y="132" class="term-text">
+      <tspan class="t-green">[✓]</tspan> <tspan class="t-white">Phase 2:</tspan> Binding Tri-Tier Analytics (Stage 1 Heuristics + Stage 2 MAD + Stage 3 IsolationForest)
+    </text>
+    <text x="0" y="152" class="term-text">
+      <tspan class="t-green">[✓]</tspan> <tspan class="t-white">Phase 3:</tspan> Live Socket Sniffer initialized (0-privilege fallback active on en0/Ethernet)
+    </text>
+    <text x="0" y="172" class="term-text">
+      <tspan class="t-green">[✓]</tspan> <tspan class="t-white">Phase 4:</tspan> Streamlit SOC Visual Dashboard online at <tspan class="t-cyan">http://localhost:8501</tspan>
+    </text>
+
+    <!-- Detection Table -->
+    <text x="0" y="206" class="term-text t-yellow">┌──────────┬─────────────────────┬──────────────────────────┬─────────────────────────────┬──────────┐</text>
+    <text x="0" y="224" class="term-text t-yellow">│ SEVERITY │ DETECTION ENGINE    │ MITRE ATT&amp;CK TECHNIQUE   │ ENDPOINT FLOW               │ STATUS   │</text>
+    <text x="0" y="242" class="term-text t-yellow">├──────────┼─────────────────────┼──────────────────────────┼─────────────────────────────┼──────────┤</text>
+    <text x="0" y="260" class="term-text">│ <tspan class="t-red">CRITICAL</tspan> │ Stage 3 ML (IForest)│ T1041 Exfiltration Over C2│ 192.168.1.100 -&gt; 10.0.0.5   │ <tspan class="t-red">ALERTED</tspan>  │</text>
+    <text x="0" y="278" class="term-text">│ <tspan class="t-red">HIGH    </tspan> │ Stage 1 Heuristics  │ T1046 Network Discovery  │ 192.168.1.100 -&gt; 10.0.0.5   │ <tspan class="t-yellow">TRIAGED</tspan>  │</text>
+    <text x="0" y="296" class="term-text">│ <tspan class="t-yellow">MEDIUM  </tspan> │ Stage 2 Stat MAD    │ T1498 Denial of Service  │ 192.168.1.100 -&gt; 10.0.0.5   │ <tspan class="t-green">RESOLVED</tspan> │</text>
+    <text x="0" y="314" class="term-text t-yellow">└──────────┴─────────────────────┴──────────────────────────┴─────────────────────────────┴──────────┘</text>
+
+    <!-- Autonomous Multi-Agent Graph Kickoff -->
+    <text x="0" y="344" class="term-text">
+      <tspan class="t-purple">[⚡] (EC)² Directed Graph Orchestrator:</tspan> Launching 8-Agent Hypothesis Triage on Alert #df8fba54
+    </text>
+    <text x="0" y="364" class="term-text t-gray">
+      ├── [Agent 1-3] Graph Expansion: Traversing Network Topology Knowledge Graph (depth=2)...
+    </text>
+    <text x="0" y="384" class="term-text t-gray">
+      ├── [Agent 4-6] Grounding Tool: Executing SQL verification on flow logs (0 PII redactions applied)...
+    </text>
+    <text x="0" y="404" class="term-text t-green">
+      └── [Agent 7-8] Executive Synthesis: Hypothesis H1 Confirmed. Generated plain-English incident report.
+    </text>
+
+    <!-- Prompt Active Line -->
+    <text x="0" y="432" class="term-text">
+      <tspan class="t-cyan">netsentinel-cli&gt;</tspan> <tspan class="t-white">report --latest</tspan> <tspan class="cursor t-cyan">█</tspan>
+    </text>
+  </g>
+</svg>

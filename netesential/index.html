@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NetSentinel | Autonomous Cybersecurity Anomaly Detection & (EC)² Multi-Agent Graph</title>
+  
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="NetSentinel is an enterprise-grade, explainable cybersecurity network anomaly detection engine and multi-agent forensic triage system developed by Hardik at Hidden Eye Security.">
+  <meta name="author" content="Hardik // Hidden Eye Security">
+  <meta property="og:title" content="NetSentinel | Autonomous Cybersecurity Anomaly Detection">
+  <meta property="og:description" content="Zero-privilege live packet ingestion, MAD statistical baselines, 10D Isolation Forest, and (EC)² autonomous multi-agent forensic triage.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/Osxninja/NetSentinel">
+  <meta name="theme-color" content="#030712">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Canvas for Neural Constellation -->
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="content-wrapper">
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+      <a href="#" class="nav-brand">
+        <div class="brand-icon">🛡️</div>
+        <span class="brand-name">NetSentinel</span>
+        <div class="live-pill">
+          <span class="live-pulse"></span>
+          <span>ONLINE</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#video-demo" class="nav-link">Live Demo</a>
+        <a href="#terminal-sim" class="nav-link">Terminal</a>
+        <a href="#architecture" class="nav-link">Architecture</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#mitre" class="nav-link">MITRE ATT&CK</a>
+        <a href="#author" class="nav-link">Author</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://github.com/Osxninja/NetSentinel" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>Star</span>
+        </a>
+        <a href="https://github.com/Osxninja/NetSentinel/archive/refs/heads/main.zip" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Download</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="overview">
+      <div class="hero-pill">
+        <span>Hidden Eye Security Research Lab</span>
+        <span>•</span>
+        <span>Lead Architect: Hardik</span>
+      </div>
+
+      <h1 class="hero-title">
+        Autonomous Network Anomaly Detection &amp; <span class="text-gradient">(EC)² Multi-Agent Graph</span>
+      </h1>
+
+      <p class="hero-desc">
+        Zero-privilege live packet ingestion, non-parametric MAD modified Z-scores, unsupervised 10D Isolation Forest, and an 8-agent directed investigation graph that synthesizes executive-ready forensic deliverables in seconds.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://github.com/Osxninja/NetSentinel" target="_blank" rel="noopener noreferrer" class="btn btn-primary hero-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>Get Source on GitHub</span>
+        </a>
+        <a href="#video-demo" class="btn btn-secondary hero-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          <span>Watch Live Video</span>
+        </a>
+      </div>
+
+      <!-- Quick Command Copy -->
+      <div class="terminal-cmd-box">
+        <span class="cmd-prefix">$</span>
+        <span>git clone https://github.com/Osxninja/NetSentinel.git</span>
+        <button class="copy-btn" data-copy="git clone https://github.com/Osxninja/NetSentinel.git" title="Copy to clipboard">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+
+      <!-- Hero Metrics Bar -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">0-PRIV</div>
+          <div class="stat-label">Socket Fallback</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">10D</div>
+          <div class="stat-label">Isolation Forest ML</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">8 AGENTS</div>
+          <div class="stat-label">(EC)² Directed Graph</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">11 / 11</div>
+          <div class="stat-label">Unit Tests (100%)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Video Showcase Section -->
+    <section class="section" id="video-demo">
+      <div class="section-header">
+        <div class="section-tag">LIVE EXECUTION</div>
+        <h2 class="section-title">See NetSentinel in Action</h2>
+        <p class="section-subtitle">
+          Real-time packet capture, tri-tier anomaly detection, and autonomous forensic triage running live on an enterprise endpoint.
+        </p>
+      </div>
+
+      <div class="video-container">
+        <div class="video-header-bar">
+          <div class="window-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="video-title">NetSentinel Production Run - Windows 11 Enterprise (assets/demo.mp4)</span>
+          <span class="video-badge">6.18 MB MP4</span>
+        </div>
+
+        <video controls playsinline preload="metadata">
+          <source src="assets/demo.mp4" type="video/mp4">
+          Your browser does not support the video tag. View directly on <a href="https://github.com/Osxninja/NetSentinel/raw/main/assets/demo.mp4">GitHub</a>.
+        </video>
+
+        <div class="video-meta-bar">
+          <div class="meta-chip">
+            <span style="color:var(--green)">●</span>
+            <span>Zero-Privilege Socket Sniffing</span>
+          </div>
+          <div class="meta-chip">
+            <span style="color:var(--cyan)">●</span>
+            <span>Async WAL Queue Draining</span>
+          </div>
+          <div class="meta-chip">
+            <span style="color:var(--yellow)">●</span>
+            <span>MAD Modified Z-Score</span>
+          </div>
+          <div class="meta-chip">
+            <span style="color:var(--purple)">●</span>
+            <span>(EC)² Multi-Agent Forensic Report</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Terminal Simulator -->
+    <section class="section" id="terminal-sim">
+      <div class="section-header">
+        <div class="section-tag">INTERACTIVE SANDBOX</div>
+        <h2 class="section-title">Test Drive the CLI in Your Browser</h2>
+        <p class="section-subtitle">
+          Click preset commands or type directly into the virtual NetSentinel terminal to experience autonomous detection and triage.
+        </p>
+      </div>
+
+      <div class="terminal-wrapper">
+        <div class="terminal-top-bar">
+          <div class="window-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span style="font-size:12px; color:var(--text-muted);">virtual-node@netsentinel: ~ (interactive-cli)</span>
+          <span style="font-size:11px; color:var(--green);">CONNECTED</span>
+        </div>
+
+        <div class="terminal-presets">
+          <span style="font-size:11px; color:var(--text-dim); display:flex; align-items:center;">Quick Commands:</span>
+          <button class="preset-chip" data-cmd="status">status</button>
+          <button class="preset-chip" data-cmd="alerts">alerts</button>
+          <button class="preset-chip" data-cmd="report --latest">report --latest</button>
+          <button class="preset-chip" data-cmd="simulate scan">simulate scan</button>
+          <button class="preset-chip" data-cmd="help">help</button>
+          <button class="preset-chip" data-cmd="clear">clear</button>
+        </div>
+
+        <div class="terminal-body" id="terminal-body">
+          <div class="term-line term-cyan">NetSentinel Enterprise Cybersecurity Anomaly Detection</div>
+          <div class="term-line term-dim">Lead Developer: Hardik | Security Lab: Hidden Eye Security</div>
+          <div class="term-line term-green">[✓] Tri-tier analytics active. Type 'help' or click presets above.</div>
+          <div class="term-line">&nbsp;</div>
+        </div>
+
+        <div class="terminal-top-bar" style="border-top: 1px solid rgba(255,255,255,0.06); border-bottom:none;">
+          <div class="term-input-row" style="width:100%;">
+            <span class="term-prompt">netsentinel-cli&gt;</span>
+            <input type="text" id="terminal-input" class="term-input" placeholder="Type a command (e.g. status, alerts, report, help)..." autocomplete="off" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Interactive Pipeline -->
+    <section class="section" id="architecture">
+      <div class="section-header">
+        <div class="section-tag">ENGINEERING PIPELINE</div>
+        <h2 class="section-title">The Six-Stage Data Lifecycle</h2>
+        <p class="section-subtitle">
+          From the network interface card to executive-ready incident deliverables without lock contention.
+        </p>
+      </div>
+
+      <div class="pipeline-tabs">
+        <button class="tab-btn active" data-tab="tab-ingest">
+          <div class="tab-step">STAGE 1</div>
+          <div class="tab-title">Zero-Privilege Ingestion</div>
+        </button>
+        <button class="tab-btn" data-tab="tab-wal">
+          <div class="tab-step">STAGE 2</div>
+          <div class="tab-title">Double-Buffered WAL</div>
+        </button>
+        <button class="tab-btn" data-tab="tab-analytics">
+          <div class="tab-step">STAGE 3</div>
+          <div class="tab-title">Tri-Tier Analytics</div>
+        </button>
+        <button class="tab-btn" data-tab="tab-agents">
+          <div class="tab-step">STAGE 4</div>
+          <div class="tab-title">(EC)² Multi-Agent Graph</div>
+        </button>
+        <button class="tab-btn" data-tab="tab-grounding">
+          <div class="tab-step">STAGE 5</div>
+          <div class="tab-title">Evidence Grounding</div>
+        </button>
+        <button class="tab-btn" data-tab="tab-deliverables">
+          <div class="tab-step">STAGE 6</div>
+          <div class="tab-title">Visual SOC Dashboard</div>
+        </button>
+      </div>
+
+      <!-- Tab Content Panels -->
+      <div class="tab-content-panel active" id="tab-ingest">
+        <h3 style="font-size:22px; color:#fff; margin-bottom:12px;">Stage 1: Zero-Privilege Packet Ingestion</h3>
+        <p style="color:var(--text-muted); margin-bottom:20px;">
+          Captures raw packets at line rate using Scapy with BPF kernel filters (<code class="badge-tag badge-cyan">ip or vlan</code>). If the host lacks Npcap/libpcap drivers or administrative privileges, NetSentinel automatically switches to zero-privilege connection polling using <code class="badge-tag badge-yellow">psutil.net_connections</code>, guaranteeing continuous monitoring across unprivileged endpoints.
+        </p>
+        <ul style="color:#cbd5e1; font-size:14px; line-height:1.8; margin-left:20px;">
+          <li>Pure Python protocol pruning: Extracts IP, TCP, UDP, and ICMP headers in memory.</li>
+          <li>Hardware thread isolation: Ingestion runs on a dedicated thread, immune to analytical latency.</li>
+          <li>Thread-safe ring buffer: Decouples packet arrival from disk writes via <code class="badge-tag badge-cyan">queue.Queue(maxsize=10000)</code>.</li>
+        </ul>
+      </div>
+
+      <div class="tab-content-panel" id="tab-wal">
+        <h3 style="font-size:22px; color:#fff; margin-bottom:12px;">Stage 2: Double-Buffered WAL Queue</h3>
+        <p style="color:var(--text-muted); margin-bottom:20px;">
+          Direct disk writes during traffic spikes cause SQLite database locks. NetSentinel's <code class="badge-tag badge-cyan">AsyncBatchWriter</code> pools records into micro-batches of 250 packets or 500ms intervals, executing bulk multi-row inserts through <code class="badge-tag badge-cyan">aiosqlite</code>.
+        </p>
+        <ul style="color:#cbd5e1; font-size:14px; line-height:1.8; margin-left:20px;">
+          <li><code class="badge-tag badge-cyan">PRAGMA journal_mode=WAL</code>: Enables concurrent reader and writer transactions without locks.</li>
+          <li><code class="badge-tag badge-cyan">PRAGMA synchronous=NORMAL</code>: Eliminates disk sync bottlenecks while maintaining durability.</li>
+          <li>Zero drop rate: Double-buffered queue drains smoothly under heavy Poisson bursts.</li>
+        </ul>
+      </div>
+
+      <div class="tab-content-panel" id="tab-analytics">
+        <h3 style="font-size:22px; color:#fff; margin-bottom:12px;">Stage 3: Tri-Tier Analytic Engine</h3>
+        <p style="color:var(--text-muted); margin-bottom:20px;">
+          Combines deterministic rules, non-parametric statistics, and machine learning to maximize true positive rates while suppressing false alarms:
+        </p>
+        <ul style="color:#cbd5e1; font-size:14px; line-height:1.8; margin-left:20px;">
+          <li><strong>Stage 1 (Rules)</strong>: Detects volumetric spikes (T1498), port sweeps &gt;20 unique ports (T1046), and SYN/RST floods (T1499).</li>
+          <li><strong>Stage 2 (Statistics)</strong>: Calculates rolling Median Absolute Deviation (MAD) modified Z-scores (<code class="badge-tag badge-yellow">M_i &gt; 3.5</code>) with a 500-packet learning warmup period.</li>
+          <li><strong>Stage 3 (Machine Learning)</strong>: Fits an online Isolation Forest on 10D multivariate vectors, scaling outlier scores through a sigmoid probability function (<code class="badge-tag badge-red">P &gt;= 0.70</code>).</li>
+        </ul>
+      </div>
+
+      <div class="tab-content-panel" id="tab-agents">
+        <h3 style="font-size:22px; color:#fff; margin-bottom:12px;">Stage 4: Autonomous (EC)² Multi-Agent Graph</h3>
+        <p style="color:var(--text-muted); margin-bottom:20px;">
+          When an anomaly is flagged, the (EC)² (Explainable Cybersecurity Consensus) directed graph activates 8 specialized agents that formulate, test, and refine hypotheses without hallucination:
+        </p>
+        <ul style="color:#cbd5e1; font-size:14px; line-height:1.8; margin-left:20px;">
+          <li><strong>Agents 1–3 (Hypothesis Generation)</strong>: Propose multiple competing root-cause hypotheses (benign admin scan vs C2 beaconing).</li>
+          <li><strong>Agents 4–6 (Evidence Collection)</strong>: Execute read-only SQL queries on historical flow logs and inspect network topology.</li>
+          <li><strong>Agents 7–8 (Review &amp; Synthesis)</strong>: Conduct adversarial review and synthesize a formal, plain-English incident report.</li>
+        </ul>
+      </div>
+
+      <div class="tab-content-panel" id="tab-grounding">
+        <h3 style="font-size:22px; color:#fff; margin-bottom:12px;">Stage 5: Evidence Grounding &amp; PII Redaction</h3>
+        <p style="color:var(--text-muted); margin-bottom:20px;">
+          Autonomous agents are prohibited from making ungrounded claims. Every assertion must cite a concrete SQL log row or topology graph entity.
+        </p>
+        <ul style="color:#cbd5e1; font-size:14px; line-height:1.8; margin-left:20px;">
+          <li>Knowledge Graph Traversal: Validates host asset roles (e.g. Finance Workstation vs Database Server).</li>
+          <li>Automated PII Masking: Redacts authorization tokens, credentials, and sensitive payload fragments.</li>
+          <li>Strict SQL Sandboxing: Read-only query execution prevents injection or state tampering.</li>
+        </ul>
+      </div>
+
+      <div class="tab-content-panel" id="tab-deliverables">
+        <h3 style="font-size:22px; color:#fff; margin-bottom:12px;">Stage 6: Visual SOC Dashboard &amp; Deliverables</h3>
+        <p style="color:var(--text-muted); margin-bottom:20px;">
+          NetSentinel serves an interactive Streamlit SOC dashboard at <code class="badge-tag badge-cyan">http://localhost:8501</code> providing complete real-time visibility:
+        </p>
+        <ul style="color:#cbd5e1; font-size:14px; line-height:1.8; margin-left:20px;">
+          <li>Wireshark-Style Packet Dissector: Real-time tabular inspector with protocol, port, and flag filters.</li>
+          <li>Endpoint Hardware Telemetry: Live gauges for CPU, memory, interface I/O, and socket handles.</li>
+          <li>One-Click PCAP Export: Dump captured ring-buffer flows to standard PCAP for Wireshark analysis.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Interactive ML & MAD Outlier Calculator -->
+    <section class="section" id="ml-demo">
+      <div class="section-header">
+        <div class="section-tag">STATISTICAL ENGINE</div>
+        <h2 class="section-title">Interactive MAD &amp; ML Outlier Simulator</h2>
+        <p class="section-subtitle">
+          Adjust the packet payload size slider to observe real-time calculation of the Median Absolute Deviation Modified Z-Score and Isolation Forest anomaly probability.
+        </p>
+      </div>
+
+      <div class="feature-card" style="max-width: 800px; margin: 0 auto;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+          <span style="font-weight:700; color:#fff;">Packet Payload Size:</span>
+          <span id="calc-val" style="font-family:var(--font-mono); font-size:20px; color:var(--cyan); font-weight:700;">412 B</span>
+        </div>
+
+        <input type="range" id="calc-slider" min="64" max="8000" value="412" step="32" style="width:100%; accent-color:var(--cyan); margin-bottom:30px; cursor:pointer;" />
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; text-align:center;">
+          <div style="background:rgba(255,255,255,0.03); padding:16px; border-radius:10px;">
+            <div style="font-size:11px; color:var(--text-dim); text-transform:uppercase; margin-bottom:4px;">MAD Modified Z-Score (M_i)</div>
+            <div id="calc-zscore" style="font-size:24px; font-weight:800; font-family:var(--font-mono); color:#fff;">0.00</div>
+            <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Threshold: &gt; 3.50</div>
+          </div>
+
+          <div style="background:rgba(255,255,255,0.03); padding:16px; border-radius:10px;">
+            <div style="font-size:11px; color:var(--text-dim); text-transform:uppercase; margin-bottom:4px;">Isolation Forest Prob P(x)</div>
+            <div id="calc-ifscore" style="font-size:24px; font-weight:800; font-family:var(--font-mono); color:var(--purple);">8%</div>
+            <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">Threshold: &gt;= 70%</div>
+          </div>
+
+          <div style="background:rgba(255,255,255,0.03); padding:16px; border-radius:10px;">
+            <div style="font-size:11px; color:var(--text-dim); text-transform:uppercase; margin-bottom:4px;">Engine Verdict</div>
+            <div style="margin-top:6px;">
+              <span id="calc-status" class="badge-tag badge-cyan">NORMAL TRAFFIC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Features Grid -->
+    <section class="section" id="features">
+      <div class="section-header">
+        <div class="section-tag">CAPABILITIES</div>
+        <h2 class="section-title">Engineered for Autonomous Defense</h2>
+        <p class="section-subtitle">
+          Built from the ground up for high throughput, statistical resilience, and zero hallucination.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">Zero-Privilege Ingestion</h3>
+          <p class="feature-desc">
+            Bypasses the requirement for raw-socket root/Administrator rights using an automatic fallback to connection polling via psutil, running smoothly on restricted endpoints.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3 class="feature-title">Rolling MAD Baselines</h3>
+          <p class="feature-desc">
+            Replaces fragile Gaussian standard deviation with non-parametric Median Absolute Deviation, resisting distortion from Poisson bursts and scheduled backups.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3 class="feature-title">10D Isolation Forest ML</h3>
+          <p class="feature-desc">
+            Unsupervised machine learning trained on multivariate vectors including port entropy, inter-arrival time variance, and TCP flag distributions to catch zero-days.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3 class="feature-title">(EC)² Multi-Agent Graph</h3>
+          <p class="feature-desc">
+            An 8-agent directed investigation graph autonomously formulates 3 competing hypotheses, tests them against historical SQL logs, and writes plain-English incident deliverables.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💾</div>
+          <h3 class="feature-title">SQLite WAL High-Concurrency</h3>
+          <p class="feature-desc">
+            High-throughput double-buffered async micro-batching (250 pkts / 500ms) with WAL mode pragmas prevents database locks during heavy network floods.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🖥️</div>
+          <h3 class="feature-title">Visual SOC Dashboard</h3>
+          <p class="feature-desc">
+            Streamlit web dashboard with Wireshark-style tabular packet dissector, live CPU/RAM/interface telemetry gauges, and forensic report reader.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MITRE ATT&CK Matrix Mapping -->
+    <section class="section" id="mitre">
+      <div class="section-header">
+        <div class="section-tag">STANDARDS ALIGNMENT</div>
+        <h2 class="section-title">MITRE ATT&amp;CK Matrix Coverage</h2>
+        <p class="section-subtitle">
+          Every detection engine tier directly aligns with standardized threat taxonomy.
+        </p>
+      </div>
+
+      <div class="mitre-table-wrap">
+        <table class="mitre-table">
+          <thead>
+            <tr>
+              <th>Tactic</th>
+              <th>Technique ID &amp; Name</th>
+              <th>Detection Tier</th>
+              <th>Detection Signature / Heuristic</th>
+              <th>Severity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TA0040: Impact</td>
+              <td><strong>T1498: Network Denial of Service</strong></td>
+              <td>Stage 1 Heuristics</td>
+              <td>Volumetric PPS spike (&gt; 150 PPS / 5s window)</td>
+              <td><span class="badge-tag badge-red">HIGH</span></td>
+            </tr>
+            <tr>
+              <td>TA0007: Discovery</td>
+              <td><strong>T1046: Network Service Discovery</strong></td>
+              <td>Stage 1 Heuristics</td>
+              <td>Horizontal port sweep (&gt; 20 unique dports / 10s)</td>
+              <td><span class="badge-tag badge-red">HIGH</span></td>
+            </tr>
+            <tr>
+              <td>TA0040: Impact</td>
+              <td><strong>T1499: Endpoint Denial of Service</strong></td>
+              <td>Stage 1 Heuristics</td>
+              <td>SYN flood / RST abnormal ratio (&gt; 80% uncompleted)</td>
+              <td><span class="badge-tag badge-yellow">MEDIUM</span></td>
+            </tr>
+            <tr>
+              <td>TA0010: Exfiltration</td>
+              <td><strong>T1041: Exfiltration Over C2</strong></td>
+              <td>Stage 2 MAD Outlier</td>
+              <td>Payload size modified Z-score (M_i &gt; 3.5 against median)</td>
+              <td><span class="badge-tag badge-red">CRITICAL</span></td>
+            </tr>
+            <tr>
+              <td>TA0011: Command &amp; Control</td>
+              <td><strong>T1071: Application Layer Protocol</strong></td>
+              <td>Stage 3 ML (IForest)</td>
+              <td>Multivariate 10D Isolation Forest outlier score &gt;= 0.70</td>
+              <td><span class="badge-tag badge-red">CRITICAL</span></td>
+            </tr>
+            <tr>
+              <td>TA0011: Command &amp; Control</td>
+              <td><strong>T1571: Non-Standard Port</strong></td>
+              <td>Stage 1 Heuristics</td>
+              <td>Direct connection to backdoor ports (4444, 8888, 31337)</td>
+              <td><span class="badge-tag badge-yellow">MEDIUM</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Author & Research Lab Showcase -->
+    <section class="section" id="author">
+      <div class="author-card">
+        <div class="author-info">
+          <h3>Designed &amp; Developed by Hardik</h3>
+          <div class="author-role">Lead Developer &amp; Systems Architect // Hidden Eye Security</div>
+          <p class="author-desc">
+            NetSentinel was conceived and developed as a research project at <strong>Hidden Eye Security</strong> to bridge zero-privilege packet ingestion, robust non-parametric machine learning, and autonomous multi-agent consensus graphs for explainable cyber defense.
+          </p>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="https://github.com/Osxninja" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub @Osxninja</span>
+          </a>
+          <a href="https://github.com/Osxninja/NetSentinel" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span>View NetSentinel Repository</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA Banner -->
+    <section class="cta-banner">
+      <div class="cta-box">
+        <h2 style="font-size:32px; font-weight:800; margin-bottom:16px; color:#fff;">
+          Ready to Deploy Autonomous Cyber Defense?
+        </h2>
+        <p style="color:var(--text-muted); font-size:16px; margin-bottom:30px; max-width:600px; margin-left:auto; margin-right:auto;">
+          Download NetSentinel from GitHub, run <code>python main.py</code>, and start monitoring live enterprise traffic in seconds.
+        </p>
+        <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+          <a href="https://github.com/Osxninja/NetSentinel" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:14px 28px; font-size:15px;">
+            <span>Download from GitHub</span>
+          </a>
+          <a href="https://github.com/Osxninja/NetSentinel/archive/refs/heads/main.zip" class="btn btn-secondary" style="padding:14px 28px; font-size:15px;">
+            <span>Download ZIP Package</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="https://github.com/Osxninja/NetSentinel" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        <a href="https://github.com/Osxninja/NetSentinel/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+        <a href="https://github.com/Osxninja/NetSentinel/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
+        <a href="https://github.com/Osxninja" target="_blank" rel="noopener noreferrer">Hidden Eye Security</a>
+      </div>
+      <p>© 2026 NetSentinel. Conceived and developed by Hardik at Hidden Eye Security. Released under the MIT License.</p>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
