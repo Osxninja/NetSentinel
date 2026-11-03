@@ -1,0 +1,22 @@
+[
+  {"timestamp": 1730600000.000, "source_ip": "192.168.1.100", "destination_ip": "10.0.0.1", "source_port": 49152, "destination_port": 53,   "protocol": "UDP",  "packet_length": 72,   "tcp_flags": null,  "window_size": null},
+  {"timestamp": 1730600000.012, "source_ip": "192.168.1.101", "destination_ip": "10.0.0.1", "source_port": 49153, "destination_port": 88,   "protocol": "TCP",  "packet_length": 128,  "tcp_flags": "S",   "window_size": 65535},
+  {"timestamp": 1730600000.025, "source_ip": "192.168.1.101", "destination_ip": "10.0.0.1", "source_port": 49153, "destination_port": 88,   "protocol": "TCP",  "packet_length": 64,   "tcp_flags": "A",   "window_size": 65535},
+  {"timestamp": 1730600000.038, "source_ip": "192.168.1.102", "destination_ip": "172.16.0.1","source_port": 49200, "destination_port": 443,  "protocol": "TCP",  "packet_length": 240,  "tcp_flags": "PA",  "window_size": 32768},
+  {"timestamp": 1730600000.050, "source_ip": "192.168.1.100", "destination_ip": "10.0.0.1", "source_port": 49154, "destination_port": 389,  "protocol": "TCP",  "packet_length": 180,  "tcp_flags": "PA",  "window_size": 65535},
+  {"timestamp": 1730600000.063, "source_ip": "192.168.1.100", "destination_ip": "10.0.0.5", "source_port": 49155, "destination_port": 1433, "protocol": "TCP",  "packet_length": 312,  "tcp_flags": "PA",  "window_size": 65535},
+  {"timestamp": 1730600000.075, "source_ip": "192.168.1.102", "destination_ip": "172.16.0.1","source_port": 49201, "destination_port": 80,   "protocol": "TCP",  "packet_length": 148,  "tcp_flags": "S",   "window_size": 32768},
+  {"timestamp": 1730600000.088, "source_ip": "192.168.1.101", "destination_ip": "10.0.0.1", "source_port": 49156, "destination_port": 445,  "protocol": "TCP",  "packet_length": 96,   "tcp_flags": "S",   "window_size": 65535},
+  {"timestamp": 1730600000.100, "source_ip": "192.168.1.100", "destination_ip": "10.0.0.1", "source_port": 49157, "destination_port": 53,   "protocol": "UDP",  "packet_length": 68,   "tcp_flags": null,  "window_size": null},
+  {"timestamp": 1730600000.113, "source_ip": "192.168.1.102", "destination_ip": "10.0.0.5", "source_port": 49202, "destination_port": 5432, "protocol": "TCP",  "packet_length": 200,  "tcp_flags": "PA",  "window_size": 32768},
+  {"timestamp": 1730600000.125, "source_ip": "192.168.1.100", "destination_ip": "10.0.0.1", "source_port": 49158, "destination_port": 88,   "protocol": "TCP",  "packet_length": 140,  "tcp_flags": "PA",  "window_size": 65535},
+  {"timestamp": 1730600000.138, "source_ip": "192.168.1.101", "destination_ip": "172.16.0.1","source_port": 49203, "destination_port": 443,  "protocol": "TCP",  "packet_length": 280,  "tcp_flags": "PA",  "window_size": 65535},
+  {"timestamp": 1730600000.150, "source_ip": "192.168.1.100", "destination_ip": "10.0.0.5", "source_port": 49159, "destination_port": 1433, "protocol": "TCP",  "packet_length": 256,  "tcp_flags": "PA",  "window_size": 65535},
+  {"timestamp": 1730600000.163, "source_ip": "192.168.1.102", "destination_ip": "10.0.0.1", "source_port": 49204, "destination_port": 53,   "protocol": "UDP",  "packet_length": 64,   "tcp_flags": null,  "window_size": null},
+  {"timestamp": 1730600000.175, "source_ip": "192.168.1.101", "destination_ip": "10.0.0.1", "source_port": 49205, "destination_port": 636,  "protocol": "TCP",  "packet_length": 180,  "tcp_flags": "PA",  "window_size": 65535},
+  {"timestamp": 1730600000.188, "source_ip": "192.168.1.100", "destination_ip": "172.16.0.1","source_port": 49206, "destination_port": 80,   "protocol": "TCP",  "packet_length": 160,  "tcp_flags": "S",   "window_size": 65535},
+  {"timestamp": 1730600000.200, "source_ip": "192.168.1.150", "destination_ip": "10.0.0.1", "source_port": 49207, "destination_port": 445,  "protocol": "TCP",  "packet_length": 96,   "tcp_flags": "PA",  "window_size": 32768},
+  {"timestamp": 1730600000.213, "source_ip": "192.168.1.100", "destination_ip": "10.0.0.1", "source_port": 49208, "destination_port": 3268, "protocol": "TCP",  "packet_length": 220,  "tcp_flags": "PA",  "window_size": 65535},
+  {"timestamp": 1730600000.225, "source_ip": "192.168.1.102", "destination_ip": "10.0.0.5", "source_port": 49209, "destination_port": 5432, "protocol": "TCP",  "packet_length": 310,  "tcp_flags": "PA",  "window_size": 32768},
+  {"timestamp": 1730600000.238, "source_ip": "192.168.1.101", "destination_ip": "172.16.0.1","source_port": 49210, "destination_port": 443,  "protocol": "TCP",  "packet_length": 190,  "tcp_flags": "PA",  "window_size": 65535}
+]
